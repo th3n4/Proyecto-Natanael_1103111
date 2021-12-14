@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NataMusicModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Musics">
+          <Key>
+            <PropertyRef Name="Titulo" />
+          </Key>
+          <Property Name="Titulo" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Artista" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Genero" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="Album" Type="nvarchar" MaxLength="60" />
+          <Property Name="Calificación" Type="char" MaxLength="10" />
+          <Property Name="Fecha_Creación" Type="date" />
+          <Property Name="Fecha_Agregación" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'NataMusic.dbo.Usuario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="hotmail" />
+            <PropertyRef Name="Contra" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="hotmail" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Contra" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="NataMusicModel1StoreContainer">
+          <EntitySet Name="Musics" EntityType="Self.Musics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Usuario].[Name] AS [Name], 
+    [Usuario].[hotmail] AS [hotmail], 
+    [Usuario].[Contra] AS [Contra]
+    FROM [dbo].[Usuario] AS [Usuario]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NataMusicModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Musics">
+          <Key>
+            <PropertyRef Name="Titulo" />
+          </Key>
+          <Property Name="Titulo" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Artista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Genero" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Album" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Calificación" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Fecha_Creación" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_Agregación" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="hotmail" />
+            <PropertyRef Name="Contra" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="hotmail" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contra" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="NataMusicEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Musics" EntityType="Self.Musics" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NataMusicModel1StoreContainer" CdmEntityContainer="NataMusicEntities1">
+          <EntitySetMapping Name="Musics">
+            <EntityTypeMapping TypeName="NataMusicModel1.Musics">
+              <MappingFragment StoreEntitySet="Musics">
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Artista" ColumnName="Artista" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Album" ColumnName="Album" />
+                <ScalarProperty Name="Calificación" ColumnName="Calificación" />
+                <ScalarProperty Name="Fecha_Creación" ColumnName="Fecha_Creación" />
+                <ScalarProperty Name="Fecha_Agregación" ColumnName="Fecha_Agregación" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="NataMusicModel1.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="hotmail" ColumnName="hotmail" />
+                <ScalarProperty Name="Contra" ColumnName="Contra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
