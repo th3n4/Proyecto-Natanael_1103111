@@ -33,6 +33,12 @@ namespace Primer_Asunto
             musica.Calificación = txtCalificacion.Text;
             musica.Genero = txtGenero.Text;
             musica.Fecha_Agregación = DateTime.Now;
+            if (string.IsNullOrEmpty(txtGenero.Text) || string.IsNullOrEmpty(txtArtista.Text) || string.IsNullOrEmpty(txtGenero.Text))
+            {
+                MessageBox.Show("Faltan datos requeridos.");
+                return;
+            }
+
 
             db.Musics.Add(musica);
             var agregado = db.SaveChanges() > 0;

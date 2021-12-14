@@ -43,6 +43,9 @@ namespace Primer_Asunto
             this.txtCancelar = new System.Windows.Forms.Button();
             this.dtpFechaMusica = new System.Windows.Forms.DateTimePicker();
             this.txtCalificacion = new System.Windows.Forms.TextBox();
+            this.h = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -161,11 +164,41 @@ namespace Primer_Asunto
             this.txtCalificacion.Size = new System.Drawing.Size(150, 22);
             this.txtCalificacion.TabIndex = 48;
             // 
+            // h
+            // 
+            this.h.AutoSize = true;
+            this.h.Location = new System.Drawing.Point(81, 42);
+            this.h.Name = "h";
+            this.h.Size = new System.Drawing.Size(13, 17);
+            this.h.TabIndex = 50;
+            this.h.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(262, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 17);
+            this.label7.TabIndex = 51;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(90, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 17);
+            this.label8.TabIndex = 52;
+            this.label8.Text = "*";
+            // 
             // CreacionMusica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 392);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.h);
             this.Controls.Add(this.dtpFechaMusica);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCalificacion);
@@ -204,5 +237,8 @@ namespace Primer_Asunto
         private System.Windows.Forms.Button txtCancelar;
         private System.Windows.Forms.DateTimePicker dtpFechaMusica;
         private System.Windows.Forms.TextBox txtCalificacion;
+        private System.Windows.Forms.Label h;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

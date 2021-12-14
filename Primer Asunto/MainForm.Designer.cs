@@ -223,6 +223,8 @@ namespace Primer_Asunto
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(809, 642);
+            this.MinimumSize = new System.Drawing.Size(809, 642);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
